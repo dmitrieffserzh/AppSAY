@@ -1,0 +1,173 @@
+// BOOTSRAP
+@import "./_bootstrap/functions";
+@import "./_bootstrap/variables";
+@import "./_bootstrap/mixins";
+@import "./_bootstrap/root";
+@import "./_bootstrap/reboot";
+@import "./_bootstrap/type";
+@import "./_bootstrap/images";
+@import "./_bootstrap/code";
+@import "./_bootstrap/grid";
+@import "./_bootstrap/tables";
+@import "./_bootstrap/forms";
+@import "./_bootstrap/buttons";
+@import "./_bootstrap/button-group";
+@import "./_bootstrap/pagination";
+@import "./_bootstrap/transitions";
+@import "./_bootstrap/utilities";
+
+a {
+  text-decoration: none !important;
+}
+
+html::-webkit-scrollbar-track    {background-color: #d3d4d4;}
+html::-webkit-scrollbar          {background-color: transparent;width: 5px;}
+html::-webkit-scrollbar-thumb    {background-color: #5e6265;}
+
+.aside::-webkit-scrollbar-track  {background-color: #d3d4d4;}
+.aside::-webkit-scrollbar        {background-color: transparent;width: 2px;}
+.aside::-webkit-scrollbar-thumb  {background-color: #5e6265;}
+
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #f5f5f8;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+// LAYOUT >> =========================================================================================================//
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #272830;
+  height: 3.5rem;
+  color: #fff;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  box-sizing: border-box;
+  line-height: 3.5rem;
+  z-index: 1100;
+
+  & > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  & .brand {
+    float: left;
+    padding: 0 15px;
+    font-size: 22px;
+    text-shadow: 0 1px 2px black;
+  }
+
+  & .function {
+    float: right;
+    text-align: right;
+    //width: calc(100% - 200px);
+    height: 50px;
+  }
+
+}
+
+.aside {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #282b38;
+  padding: 3.5rem 0 0;
+  height: 100vh;
+  color: #fff;
+  overflow-y: auto;
+  box-shadow: 1px 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.content {
+  margin: 3.5rem 0;
+}
+
+// TOP LINKS >> ======================================================================================================//
+.top-elements {
+  display: inline-block;
+  padding: 15px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  transition: .3s;
+  &:hover {
+    background: #343746;
+    color: #8f92ff !important;
+    transition: .3s;
+  }
+  & svg {
+    float: left;
+    margin-right: 5px;
+  }
+}
+
+// MENU >> ===========================================================================================================//
+.menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  &__item {
+    display: block;
+    background: transparent;
+    transition: .3s;
+    &:hover {
+      background: #343746;
+    }
+    &.active a {
+      background: #343746;
+      color: #8f92ff !important;
+    }
+  }
+  &__link {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 26px;
+    padding: 7px 15px;
+    opacity: 1;
+    transition: .3s;
+    &:hover {
+      color: #8f92ff;
+    }
+    & svg {
+      display: inline-block;
+      float: left;
+      margin-right: 10px;
+    }
+  }
+}
+
+
+// ICONS >> ==========================================================================================================//
+.admin-feather {
+  width: 20px;
+  float: left;
+}
+
+// TABALS >> ==========================================================================================================//
+.table th, .table td {
+  padding: 0.2rem;
+  vertical-align: middle;
+  border-top: 1px solid #dee2e6;
+}
