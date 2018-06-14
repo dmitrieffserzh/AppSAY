@@ -1,27 +1,19 @@
-@forelse($news as $item)
+@forelse($categories as $item)
     <tr>
         <td class="font-weight-bold text-center">{{ ++$i }}</td>
-        <td><a href="{{ route('admin.news.show', $item->id) }}">{{ $item->title }}</a></td>
-        <td>{{ $item->getCategory->title or 'Категория не указана' }}</td>
-        <td>{{ $item->getAuthor->nickname }}</td>
-        <td>
-            @if($item->published == 1 )
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#00f319"
-                     stroke="#00f319" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                     class="admin-feather feather-circle">
-                    <circle cx="12" cy="12" r="10"></circle>
-                </svg>
-            @else
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fd7ab3"
-                     stroke="#fd7ab3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                     class="admin-feather feather-circle">
-                    <circle cx="12" cy="12" r="10"></circle>
-                </svg>
-            @endif
+        <td class="text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="{{ $item->color }}"
+                 stroke="{{ $item->color }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="admin-feather feather-circle">
+                <circle cx="12" cy="12" r="10"></circle>
+            </svg>
         </td>
+        <td><a href="{{ route('admin.categories.show', $item->id) }}">{!! $delimiter or "" !!}{{ $item->title }}</a></td>
+        <td>{{ $item->slug }}</td>
+
         <td class="text-right">
             <div class="btn-group" role="group">
-                <a class="btn btn-primary btn-sm" href="{{ route('admin.news.show', $item->id) }}">
+                <a class="btn btn-primary btn-sm" href="{{ route('admin.categories.show', $item->id) }}">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -31,7 +23,7 @@
                     </svg>
 
                 </a>
-                <a class="btn btn-primary btn-sm" href="{{ route('admin.news.edit', $item->id) }}">
+                <a class="btn btn-primary btn-sm" href="{{ route('admin.categories.edit', $item->id) }}">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -42,7 +34,7 @@
 
                 </a>
             </div>
-            <form action="{{ route('admin.news.destroy', $item->id) }}" method="POST" style="display:inline">
+            <form action="{{ route('admin.categories.destroy', $item->id) }}" method="POST" style="display:inline">
                 @csrf
                 {{ method_field('DELETE') }}
                 <button type="submit" class="btn btn-danger btn-sm">
@@ -59,6 +51,15 @@
 
         </td>
     </tr>
+
+    @if(count($item->children) > 0)
+        @include('admin.categories.partials.item', [
+        'categories' => $item->children,
+        'delimiter'  => '—' . $delimiter . ' '
+        ] )
+    @endif
+
+
 @empty
-    <p class="alert">Нет публикаций</p>
+    <p class="alert">Нет категорий</p>
 @endforelse

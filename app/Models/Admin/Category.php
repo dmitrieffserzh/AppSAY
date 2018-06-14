@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model {
 
+	protected $dateFormat = 'U';
+
 	public $fillable = [
 		'parent_id',
 		'title',
 		'slug',
+		'color',
 		'created_at',
 		'updated_at'
 	];
@@ -18,6 +21,7 @@ class Category extends Model {
 		'created_at',
 		'updated_at'
 	];
+
 
 	public function getRouteKeyName() {
 		return 'slug';
