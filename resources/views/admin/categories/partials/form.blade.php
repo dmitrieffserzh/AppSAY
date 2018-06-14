@@ -31,5 +31,5 @@
 <div class="form-group">
     <label for="parent_id">Цвет бейджа</label>
     <input type="text" name="color" class="form-control" id="title" aria-describedby="titleHelp"
-         value="{{ $category->color or "#007bff;" }}">
+         value="{{ $category->color or "#007bff" }}">
 </div>

@@ -12,14 +12,10 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&amp;subset=cyrillic" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
@@ -70,6 +66,13 @@
             </aside>
             <main class="col-12 col-md-9 col-xl-10 py-md-3 content">
                 <div class="col-lg-12 bg-white shadow-sm py-3">
+
+                    @if (session('success'))
+                        <div class="alert alert-primary" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     @yield('content')
                 </div>
             </main>

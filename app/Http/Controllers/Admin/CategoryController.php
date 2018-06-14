@@ -17,13 +17,13 @@ class CategoryController extends Controller {
 			'category'   => [],
 			'categories' => Category::with( 'children' )->where( 'parent_id', '0' )->paginate( 15 ),
 			'delimiter'  => '',
-			'i'          => ( request()->input( 'page', 1 ) - 1 ) * 5
+			'i'          => ( request()->input( 'page', 1 ) - 1 ) * 15
 		] );
 	}
 
 	public function create() {
 		return view( 'admin.categories.create', [
-			'category'   => NULL,
+			'category'   => null,
 			'categories' => Category::with( 'children' )->where( 'parent_id', '0' )->get(),
 			'delimiter'  => '',
 		] );
@@ -37,7 +37,7 @@ class CategoryController extends Controller {
 		Category::create( $request->all() );
 
 		return redirect()->route( 'admin.categories.index' )
-		                 ->with( 'success', 'Категория успешно добавлена' );
+		                 ->with( 'success', 'Категория успешно добавлена!' );
 	}
 
 	public function show( $id ) {
@@ -49,9 +49,9 @@ class CategoryController extends Controller {
 	public function edit( $id ) {
 
 		return view( 'admin.categories.create', [
-			'category'    => Category::find( $id ),
-			'categories'  => Category::with( 'children' )->where( 'parent_id', '0' )->get(),
-			'delimiter'   => '',
+			'category'   => Category::find( $id ),
+			'categories' => Category::with( 'children' )->where( 'parent_id', '0' )->get(),
+			'delimiter'  => '',
 		] );
 	}
 
@@ -70,7 +70,7 @@ class CategoryController extends Controller {
 		Category::find( $id )->delete();
 
 		return redirect()->route( 'admin.categories.index' )
-		                 ->with( 'success', 'Категория удалена!' );
+		                 ->with( 'success', 'Категория успешно удалена!' );
 	}
 
 }

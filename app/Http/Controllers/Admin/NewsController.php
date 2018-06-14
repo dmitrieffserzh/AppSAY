@@ -10,12 +10,11 @@ use App\Http\Controllers\Controller;
 
 class NewsController extends Controller {
 
-
 	public function index() {
-		$news = News::latest()->paginate( 5 );
+		$news = News::latest()->paginate( 15 );
 
 		return view( 'admin.news.index', compact( 'news' ) )
-			->with( 'i', ( request()->input( 'page', 1 ) - 1 ) * 5 );
+			->with( 'i', ( request()->input( 'page', 1 ) - 1 ) * 15 );
 	}
 
 
