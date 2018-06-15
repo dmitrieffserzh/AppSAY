@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model {
 
+	public $type = 'news';
+
 	public $fillable = [
 		'title',
 		'content',
@@ -29,5 +31,9 @@ class News extends Model {
 
 	public function getCategory() {
 		return $this->belongsTo(Category::class, 'category_id');
+	}
+
+	public function getTags() {
+		return $this->morphToMany(Tag::class, 'taggable');
 	}
 }

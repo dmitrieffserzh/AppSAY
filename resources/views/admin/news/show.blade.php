@@ -6,10 +6,19 @@
             Отменить
         </a>
     <hr>
-    <strong>Категория:</strong> {{ $news->getCategory->title }}
+    <strong>Категория:</strong> {{ $news->getCategory->title or "Категория не указана" }}
     <div class="row">
         <div class="col-lg-6">
             {{ $news->content }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            @forelse($news->getTags as $item_tag)
+                {{ $item_tag->title }},
+                @empty
+                {{ 'Теги не найдены' }}
+            @endforelse
         </div>
     </div>
 @endsection

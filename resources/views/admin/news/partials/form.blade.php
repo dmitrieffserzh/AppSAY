@@ -26,3 +26,14 @@
 <div class="form-group">
     <textarea name="content" class="form-control" id="" cols="30" rows="10">{{ $news->content or "" }}</textarea>
 </div>
+
+
+<div class="form-group">
+    <label for="tags">Теги</label>
+    <input type="text" name="tags" class="form-control" id="tags" aria-describedby="tagsHelp"
+           value="{{ $news->getTags or "" }}">
+    <small id="tagsHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    @if ($errors->has('tags'))
+        <span class="text-danger">{{ $errors->first('tags') }}</span>
+    @endif
+</div>
