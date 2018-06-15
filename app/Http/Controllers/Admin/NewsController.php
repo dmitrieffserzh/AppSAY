@@ -47,7 +47,7 @@ class NewsController extends Controller {
 		$news->category_id = $request['category_id'];
 		$news->save();
 
-		// SAVE TAGS FUNCTION
+		// SAVE TAGS PRIVATE FUNCTION
 		$this->saveTags( $news, $tags );
 
 		return redirect()->route( 'admin.news.index' )
@@ -97,7 +97,10 @@ class NewsController extends Controller {
 	}
 
 
-	// SAVE TAGS FUNCTIONS
+
+
+	// SAVE TAGS FUNCTIONS >> ========================================================================================//
+
 	private function saveTags( $news, $tags ) {
 
 		$array_replace_map = function ( $value ) {
@@ -107,13 +110,9 @@ class NewsController extends Controller {
 		$tags = trim( preg_replace( '/[^A-Za-zА-Яа-яЁё0-9,\s]+/u', '', $tags ) );
 		$tags = array_map( $array_replace_map, array_values( array_diff( explode( ",", $tags ), array( '', ' ' ) ) ) );
 
-
 		for ( $i = 0; $i < count( $tags ); $i ++ ) {
-
 			$tag_exist = Tag::where( 'title', $tags[ $i ] )->first();
-
 			if ( ! $tag_exist ) {
-
 				$news->getTags()->create( [
 					'title' => $tags[ $i ],
 					'slug'  => str_slug( $tags[ $i ] ),
@@ -121,7 +120,6 @@ class NewsController extends Controller {
 			} else {
 				$news->getTags()->attach( $tag_exist );
 			}
-
 		}
 	}
 
