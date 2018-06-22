@@ -1,3 +1,78 @@
+// BOOTSRAP
+//@import "./_bootstrap/functions";
+//@import "./_bootstrap/variables";
+//@import "./_bootstrap/mixins";
+//@import "./_bootstrap/root";
+//@import "./_bootstrap/reboot";
+//@import "./_bootstrap/type";
+//@import "./_bootstrap/images";
+//@import "./_bootstrap/grid";
+//@import "./_bootstrap/forms";
+//@import "./_bootstrap/buttons";
+//@import "./_bootstrap/button-group";
+//@import "./_bootstrap/pagination";
+//@import "./_bootstrap/alert";
+//@import "./_bootstrap/transitions";
+//@import "./_bootstrap/utilities";
 
-// Variables
-@import "variables";
+
+@import "./_bootstrap/bootstrap-reboot";
+@import "./_bootstrap/bootstrap-grid";
+@import "./_bootstrap/alert";
+@import "./_bootstrap/pagination";
+@import "./_bootstrap/utilities";
+@import "./_bootstrap/transitions";
+
+a {
+  text-decoration: none !important;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: .85rem !important;
+}
+
+
+// HEADER >> =========================================================================================================//
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  //background: #fff;
+  background: #5268d2;
+  background: -webkit-linear-gradient(right, #9074fe 0%, #5268d2 100%);
+  background: -o-linear-gradient(right, #9074fe 0%, #5268d2 100%);
+  background: linear-gradient(to left, #9074fe 0%, #5268d2 100%);
+  width: 100%;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.03);
+  z-index: 100;
+  &__brand {
+    display: inline-block;
+    float: left;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-right: 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: inherit;
+    white-space: nowrap;
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+// FOOTER >> =========================================================================================================//
+.footer {
+  font-size: 13px;
+  color: #a3a7b3;
+  line-height: 2.5rem;
+}
+
+// WIDGETS >> ========================================================================================================//
+.header {
+
+}
+

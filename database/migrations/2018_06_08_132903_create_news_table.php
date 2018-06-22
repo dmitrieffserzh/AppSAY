@@ -17,6 +17,7 @@ class CreateNewsTable extends Migration
 	        $table->increments('id');
 	        $table->string('title');
 	        $table->longText('content');
+	        $table->string('slug');
 	        $table->integer('user_id')->unsigned();
 	        $table->integer('category_id')->unsigned();
 	        $table->integer('published')->default(1);

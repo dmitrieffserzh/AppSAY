@@ -3,7 +3,7 @@
 namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+// use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 Relation::morphMap([
@@ -23,7 +23,6 @@ class Tag extends Model {
 
 	public $timestamps = false;
 
-	// RELATIONS
 	// RELATIONS
 	public function getNews() {
 		return $this->morphedByMany( News::class,'taggable');

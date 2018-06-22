@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+// use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
 Relation::morphMap([
@@ -12,18 +12,22 @@ Relation::morphMap([
 
 class Tag extends Model {
 
-	use SoftDeletes;
+	//use SoftDeletes;
 
 	public $type = 'tags';
 
 	protected $fillable = [
 		'title',
-		'slug',
-		'content_id',
-		'content_type'
+		'slug'
 	];
 
-	protected $dates = ['deleted_at'];
+	public $timestamps = false;
+
+
+	public function getRouteKeyName() {
+		return 'slug';
+	}
+
 
 	// RELATIONS
 	public function getNews() {
