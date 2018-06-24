@@ -10,7 +10,7 @@
                     @endif
                     ">
                 <a href="{{ route('news.show', ['category_slug'=>$item->getCategory->slug, 'slug'=>$item->slug]) }}"
-                   class="h2 d-block text-dark font-weight-bold">{{$item->title or ""}}</a>
+                   class="h3 d-block text-dark font-weight-bold">{{$item->title or ""}}</a>
                 <h6 class="d-inline-block small text-light p-1" style="background: {{ $item->getCategory->color }}"><a
                             href="{{ route('news.category', $item->getCategory->slug ) }}"
                             class="text-light p-1 font-weight-bold">{{ $item->getCategory->title }}</a></h6>
