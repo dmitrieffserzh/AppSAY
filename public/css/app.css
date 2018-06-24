@@ -6713,3 +6713,30 @@ body {
   line-height: 2.5rem;
 }
 
+.auth-menu {
+  display: inline-block;
+  float: right;
+}
+
+.auth-menu__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.auth-menu__item {
+  line-height: 1.5rem;
+}
+
+.auth-menu__link {
+  display: block;
+  padding: 1rem 0;
+  color: #fff;
+}
+
+.aside-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+

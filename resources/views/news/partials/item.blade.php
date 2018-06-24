@@ -2,7 +2,7 @@
 @forelse ($news as $item)
 
     <div class="@if( $count == 99 || $count == 99 || $count == 99 ) col-lg-8 @else col-lg-4 @endif">
-        <div class="mb-4 bg-white shadow-sm item-test">
+        <div class="mb-4 bg-white item-test">
             <img src="{{ getImage('news', $item->image) }}" width="100%">
             <div class="p-3
                     @if( $count == 1 || $count == 7 || $count == 11 )
@@ -31,8 +31,7 @@
                 @forelse($item->getTags as $item_tag)
 
                     <a href="{{ route('news.tag', $item_tag->slug) }}" class="text-uppercase text-primary"
-                       style="font-size: 10px;">#{{ $item_tag->title }}</a>
-                    @if($count_tags != count($item->getTags)), @endif
+                       style="font-size: 10px;">#{{ $item_tag->title }}</a>@if($count_tags != count($item->getTags))<span class="text-primary">, </span>@endif
                     @php($count_tags++)
 
                 @empty

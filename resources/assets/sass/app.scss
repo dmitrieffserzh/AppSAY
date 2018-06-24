@@ -72,7 +72,27 @@ body {
 }
 
 // WIDGETS >> ========================================================================================================//
-.header {
+.auth-menu {
+  display: inline-block;
+  float: right;
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  &__item {
+    line-height: 1.5rem;
+  }
+  &__link {
+    display: block;
+    padding: 1rem 0;
+    color: #fff;
+  }
+}
 
+.aside-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
