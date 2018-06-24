@@ -5,7 +5,7 @@
         <div class="mb-4 bg-white item-test">
             <img src="{{ getImage('news', $item->image) }}" width="100%">
             <div class="p-3
-                    @if( $count == 1 || $count == 7 || $count == 11 )
+                    @if( $count == 99 || $count == 99 || $count == 99 )
                     position-absolute abs-pos
                     @endif
                     ">
