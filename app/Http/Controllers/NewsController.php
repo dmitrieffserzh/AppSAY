@@ -4,29 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
-use App\Models\Category;
 use Illuminate\Support\Facades\Event;
 
 class NewsController extends Controller {
 
-	public function index() {
-		return view( 'news.index', [
-			'news' => News::latest()->paginate( 15 )
-		] );
-	}
+    public function index() {
+        return view('news.index', [
+            'news' => News::latest()->paginate(15)
+        ]);
+    }
 
 
-	public function show( $slug ) {
+    public function show($category_slug, $slug) {
 
-		echo $slug;
-	die;
-		//$post = News::find( $news_slug );
-		//Event::fire( 'main.content.news.view', $post );
+        $news = News::where('slug', $slug)->firstOrFail();
 
+        if ($news->getCategory->slug != $category_slug) {
+            abort(404);
+        }
 
-//		return 'сработало';
-//		return view( 'main.content.news.view', [
-//			'post' => $post
-//		] );
-	}
+        Event::fire( 'news.show', $news );
+
+        return view('news.show', [
+            'news' => $news
+        ]);
+    }
 }

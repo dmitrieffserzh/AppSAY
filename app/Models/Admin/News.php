@@ -9,6 +9,7 @@ class News extends Model {
 	public $type = 'news';
 
 	public $fillable = [
+		'slug',
 		'title',
 		'content',
 		'user_id',

@@ -42,6 +42,7 @@ class NewsController extends Controller {
 		$news              = new News();
 		$news->user_id     = Auth::id();
 		$news->title       = $request['title'];
+		$news->slug        = str_slug( $request['title']);
 		$news->content     = $request['content'];
 		$news->published   = $request['published'];
 		$news->category_id = $request['category_id'];

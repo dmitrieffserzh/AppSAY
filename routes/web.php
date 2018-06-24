@@ -17,18 +17,18 @@ Auth::routes();
 Route::get('/',                                   [ 'as' => 'home',           'uses' => 'HomeController@index' ]);
 
 
+// TAGS
+Route::get('news/tag/{slug}',                  [ 'as' => 'news.tag',       'uses' => 'TagController@index' ]);
+
+
 // NEWS
 Route::group([
 	'prefix'        => 'news'],
 	function() {
-		Route::get('/',                           [ 'as' => 'news.index',     'uses' => 'NewsController@index' ]);
+        Route::get('/',                           [ 'as' => 'news.index',     'uses' => 'NewsController@index' ]);
 		Route::get('{category_slug}',             [ 'as' => 'news.category',  'uses' => 'CategoryController@index' ]);
 		Route::get('{category_slug}/{slug}',      [ 'as' => 'news.show',      'uses' => 'NewsController@show' ]);
-	});
-
-// TAGS
-Route::get('news/tag/{slug}',                     [ 'as' => 'news.tag',       'uses' => 'TagController@index' ]);
-
+		});
 
 // USERS
 Route::get('users',                               [ 'as' => 'users.list',     'uses' => 'NewsController@index' ]);

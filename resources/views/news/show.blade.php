@@ -18,11 +18,25 @@
             </div>
         @endif
 
-        <div class="row">
-            @include('news.partials.item', ['news' => $news])
+        <div class="col">
+            <h1>{{ $news->title }}</h1>
+            {{ $news->content }}
         </div>
 
-        {!! $news->links() !!}
+        <div class="col">
+            @php($count_tags = 1)
+            @forelse($news->getTags as $item_tag)
+
+                <a href="{{ route('news.tag', $item_tag->slug) }}" class="text-uppercase text-primary"
+                   style="font-size: 10px;">#{{ $item_tag->title }}</a>
+                @if($count_tags != count($news->getTags)), @endif
+                @php($count_tags++)
+
+            @empty
+                {{ 'Теги не найдены' }}
+            @endforelse
+
+        </div>
 
     </section>
 
@@ -35,11 +49,11 @@
         <li><a href="{{ route('users.list') }}">Пользователи</a></li>
         <li><a href="{{ route('news.index') }}">Новости</a></li>
 
-        @if(Auth::check())
-            {{--@if( Auth::user()->role == 'editor' || Auth::user()->is_admin())--}}
-                {{--<li><a href="{{ route('admin.dashboard') }}">Панель управления</a></li>--}}
-            {{--@endif--}}
-        @endif
+    @if(Auth::check())
+        {{--@if( Auth::user()->role == 'editor' || Auth::user()->is_admin())--}}
+        {{--<li><a href="{{ route('admin.dashboard') }}">Панель управления</a></li>--}}
+        {{--@endif--}}
+    @endif
     <!-- Authentication Links -->
         @if (Auth::guest())
             <li><a href="{{ route('login') }}" class="ajax-modal main-menu__link" data-toggle="modal"
@@ -48,7 +62,7 @@
         @else
             <li>
                 {{--<a href="{{ route('users.profile', Auth::id()) }}">--}}
-                    {{--{{ Auth::user()->nickname }}--}}
+                {{--{{ Auth::user()->nickname }}--}}
                 {{--</a>--}}
 
             </li>

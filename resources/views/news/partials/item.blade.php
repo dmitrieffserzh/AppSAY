@@ -1,7 +1,7 @@
 @php($count = 1)
 @forelse ($news as $item)
 
-    <div class="@if( $count == 1 || $count == 7 || $count == 11 ) col-lg-8 @else col-lg-4 @endif">
+    <div class="@if( $count == 99 || $count == 99 || $count == 99 ) col-lg-8 @else col-lg-4 @endif">
         <div class="mb-4 bg-white shadow-sm item-test">
             <img src="{{ getImage('news', $item->image) }}" width="100%">
             <div class="p-3
