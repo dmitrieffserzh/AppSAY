@@ -34,6 +34,11 @@
             @endforeach
 
         </div>
+        <div class="col">
+            @include('widgets.comments-count.comments_count', ['content'=>$news])
+            @include('widgets.views.view_count', ['content'=>$news])
+            @include('widgets.likes.like', ['content'=>$news])
+        </div>
 
     </section>
 

@@ -20,12 +20,19 @@
 @import "./_bootstrap/bootstrap-grid";
 @import "./_bootstrap/type";
 @import "./_bootstrap/images";
+@import "./_bootstrap/buttons";
 @import "./_bootstrap/media";
+@import "./_bootstrap/modal";
 @import "./_bootstrap/alert";
 @import "./_bootstrap/dropdown";
 @import "./_bootstrap/pagination";
+@import "./_bootstrap/close";
 @import "./_bootstrap/utilities";
 @import "./_bootstrap/transitions";
+
+* {
+  outline: none !important;
+}
 
 a {
   text-decoration: none !important;
@@ -100,7 +107,6 @@ body {
   list-style: none;
 }
 
-
 .component {
   // STATUS
   &-status {
@@ -119,5 +125,191 @@ body {
       background: #b1c6d2;
     }
   }
+  // VIEWS
+  &-views {
+    display: inline-block;
+    line-height: 0;
+    &__count {
+      display: inline-block;
+      float: right;
+      padding: 0 .3rem;
+      min-width: 40px;
+      font-family: Arial, monospace;
+      font-size: 14px;
+      color: #b6bcc7;
+      text-align: left;
+      vertical-align: middle;
+      line-height: 1.4rem;
+    }
+    &__icon {
+      display: inline-block;
+      fill: none;
+      stroke: #cad0dc !important;
+      overflow: hidden;
+    }
+  }
+  // LIKE SYSTEM
+  &-likes {
+    display: inline-block;
+    line-height: 0;
+    &__count {
+      display: inline-block;
+      float: left;
+      padding: 0 .3rem;
+      min-width: 40px;
+      font-family: Arial, monospace;
+      font-size: 14px;
+      color: #b6bcc7;
+      text-align: right;
+      vertical-align: middle;
+      line-height: 1.4rem;
+    }
+    &__button {
+      display: inline-block;
+      overflow: hidden;
+    }
+    & .like {
+      &--true {
+        fill: #ff5b97 !important;
+        stroke: #ff5b97 !important;
+        -webkit-animation: like--true .2s normal;
+        -moz-animation: like--true .2s normal;
+        -o-animation: like--true .2s normal;
+        animation: like--true .2s normal;
+      }
+      &--false {
+        //fill: #cad0dc !important;
+        fill: none;
+        stroke: #cad0dc !important;
+        -webkit-animation: like--false .2s normal;
+        -moz-animation: like--false .2s normal;
+        -o-animation: like--false .2s normal;
+        animation: like--false .2s normal;
+      }
+    }
+  }
+  // COMMENT COUNT
+  &-comments-count {
+    display: inline-block;
+    line-height: 0;
+    &__count {
+      display: inline-block;
+      float: right;
+      padding: 0 .3rem;
+      min-width: 40px;
+      font-family: Arial, monospace;
+      font-size: 14px;
+      color: #b6bcc7;
+      text-align: left;
+      vertical-align: middle;
+      line-height: 1.4rem;
+    }
+    &__icon {
+      display: inline-block;
+      fill: none;
+      stroke: #cad0dc !important;
+      overflow: hidden;
+    }
+  }
 }
 
+
+
+// ANIMATIONS >> =====================================================================================================//
+// LIKE TRUE
+@-webkit-keyframes like--true {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  70% {
+    -webkit-transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes like--true {
+  0% {
+    -moz-transform: scale(1);
+  }
+  70% {
+    -moz-transform: scale(1.2);
+  }
+  100% {
+    -moz-transform: scale(1);
+  }
+}
+
+@-o-keyframes like--true {
+  0% {
+    -o-transform: scale(1);
+  }
+  70% {
+    -o-transform: scale(1.2);
+  }
+  100% {
+    -o-transform: scale(1);
+  }
+}
+
+@keyframes like--true {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// LIKE FALSE
+@-webkit-keyframes like--false {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  70% {
+    -webkit-transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes like--false {
+  0% {
+    -moz-transform: scale(1);
+  }
+  70% {
+    -moz-transform: scale(0.8);
+  }
+  100% {
+    -moz-transform: scale(1);
+  }
+}
+
+@-o-keyframes like--false {
+  0% {
+    -o-transform: scale(1);
+  }
+  70% {
+    -o-transform: scale(0.8);
+  }
+  100% {
+    -o-transform: scale(1);
+  }
+}
+
+@keyframes like--false {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

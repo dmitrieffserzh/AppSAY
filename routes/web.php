@@ -23,7 +23,8 @@ Route::get('news/tag/{slug}',                     [ 'as' => 'news.tag',       'u
 
 // NEWS
 Route::group([
-	'prefix'        => 'news'],
+	'prefix'        => 'news',
+	'middleware'    => 'filter.view.counts'],
 	function() {
         Route::get('/',                           [ 'as' => 'news.index',     'uses' => 'NewsController@index' ]);
 		Route::get('{category_slug}',             [ 'as' => 'news.category',  'uses' => 'CategoryController@index' ]);
@@ -34,6 +35,13 @@ Route::group([
 // USERS
 Route::get('users',                               [ 'as' => 'users.list',     'uses' => 'ProfileController@index' ]);
 Route::get('users/id{id}',                        [ 'as' => 'users.profile',  'uses' => 'ProfileController@profile' ]);
+
+
+
+
+// LIKE
+Route::post('like',                               ['as' => 'like',            'uses' => 'LikeController@like']);
+
 
 
 // ADMIN PANEL =======================================================================================================//

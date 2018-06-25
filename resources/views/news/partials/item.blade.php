@@ -1,7 +1,7 @@
 @php($count = 1)
 @forelse ($news as $item)
 
-    <div class="@if( $count == 99 || $count == 99 || $count == 99 ) col-lg-8 @else col-lg-4 @endif">
+    <div class="@if( $count == 99 || $count == 99 || $count == 99 ) col-lg-8 @else col-lg-6 @endif">
         <div class="mb-4 bg-white item-test">
             <img src="{{ getImage('news', $item->image) }}" width="100%">
             <div class="p-3
@@ -28,8 +28,8 @@
                 </div>
 
                 {{--@include('widgets.comments-count.comments_count', ['content'=>$item])--}}
-                {{--@include('widgets.views.view_count', ['content'=>$item])--}}
-                {{--@include('widgets.likes.like', ['content'=>$item])--}}
+                @include('widgets.views.view_count', ['content'=>$item])
+                @include('widgets.likes.like', ['content'=>$item])
 
                 @php($count_tags = 1)
                 @foreach($item->getTags as $item_tag)

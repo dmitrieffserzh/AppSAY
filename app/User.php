@@ -36,6 +36,10 @@ class User extends Authenticatable {
 
 
 	// RELATIONS
+	public function liked() {
+		return $this->morphedByMany( News::class, 'content_id' )->whereDeletedAt( null );
+	}
+
 	public function getProfile() {
 		return $this->hasOne( Profile::class );
 	}

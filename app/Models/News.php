@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class News extends Model {
@@ -29,7 +30,16 @@ class News extends Model {
 		return 'slug';
 	}
 
+	public function getLikedAttribute() {
+		$like = $this->like()->where('user_id', Auth::id())->first();
+		return !is_null($like);
+	}
+
 	// RELATIONS
+	public function like() {
+		return $this->morphMany(Like::class, 'content');
+	}
+
 	public function getAuthor() {
 		return $this->belongsTo(User::class, 'user_id');
 	}
@@ -40,5 +50,9 @@ class News extends Model {
 
 	public function getTags() {
 		return $this->morphToMany(Tag::class, 'taggable');
+	}
+
+	public function getComments() {
+		return $this->morphMany(Comment::class, 'content')->withTrashed();
 	}
 }
