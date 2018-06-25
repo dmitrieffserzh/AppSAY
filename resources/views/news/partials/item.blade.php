@@ -15,8 +15,8 @@
                             href="{{ route('news.category', $item->getCategory->slug ) }}"
                             class="text-light p-1 font-weight-bold text-uppercase">{{ $item->getCategory->title }}</a></h6>
 
-                <a href="{{ route('users.profile', $item->getAuthor->id) }}" class="author-widget d-inline-bloc text-dark" title="Автор {{ $item->getAuthor->nickname }}">
-                    <img src="{{ $item->getAuthor->getProfile->avatar }}" style="height: 25px;width: 25px" class="rounded-circle" alt="{{ $item->getAuthor->nickname }}">
+                <a href="{{ route('users.profile', $item->getAuthor->id) }}" class="author-widget d-inline-block text-dark" title="Автор {{ $item->getAuthor->nickname }}">
+                    <img src="{{ $item->getAuthor->getProfile->avatar }}" style="height: 23px;width: 23px" class="rounded-circle" alt="{{ $item->getAuthor->nickname }}">
                     {{ $item->getAuthor->nickname }}
                 </a>
                 <div class="" style="color: #b0bbc5;">{{ $item->created_at->diffForHumans() }}</div>
