@@ -37,10 +37,14 @@ Route::get('users',                               [ 'as' => 'users.list',     'u
 Route::get('users/id{id}',                        [ 'as' => 'users.profile',  'uses' => 'ProfileController@profile' ]);
 
 
-
-
 // LIKE
-Route::post('like',                               ['as' => 'like',            'uses' => 'LikeController@like']);
+Route::post('like_handler',                       ['as' => 'like_handler',    'uses' => 'LikeController@like']);
+
+// FOLLOWERS
+Route::post('follow_handler',                     ['as' => 'follow_handler',  'uses' => 'FollowController@follow']);
+
+// IMAGE UPLOADER
+Route::post('image_upload',                       ['as' => 'image.upload',    'uses' => 'ImageController@upload']);
 
 
 

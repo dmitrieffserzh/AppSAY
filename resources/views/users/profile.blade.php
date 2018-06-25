@@ -1,12 +1,3 @@
-@push('add_styles')
-    {{--<link href="{{ asset('css/components/image-select-area.css') }}" rel="stylesheet">--}}
-@endpush
-
-@push('add_scripts')
-    <script src="{{ asset('main/js/image_uploader.js') }}" defer></script>
-@endpush
-
-
 @extends('app')
 <style>
 
@@ -210,43 +201,3 @@
         </ul>
 
 @endsection
-{{--<script>--}}
-
-{{--var jcrop_api;--}}
-
-{{--jQuery(function ($) {--}}
-{{--var width = jQuery('#target').prop('naturalWidth');--}}
-{{--var height = jQuery('#target').prop('naturalHeight');--}}
-
-{{--jQuery('#target').Jcrop({--}}
-{{--aspectRatio: 1,--}}
-{{--onSelect: showPreview,--}}
-{{--onChange: showPreview,--}}
-{{--//setSelect: [ 100, 100, 200, 200 ],--}}
-
-{{--trueSize: [width, height],--}}
-{{--boxWidth: width,--}}
-{{--allowResize: true,--}}
-{{--minSize: [300, 300]--}}
-{{--});--}}
-
-
-{{--var $preview = $('#preview');--}}
-{{--// Our simple event handler, called from onChange and onSelect--}}
-{{--// event handlers, as per the Jcrop invocation above--}}
-{{--function showPreview(coords) {--}}
-{{--if (parseInt(coords.w) > 0) {--}}
-{{--var rx = 100 / coords.w;--}}
-{{--var ry = 100 / coords.h;--}}
-
-{{--$preview.css({--}}
-{{--width: Math.round(rx * 500) + 'px',--}}
-{{--height: Math.round(ry * 370) + 'px',--}}
-{{--marginLeft: '-' + Math.round(rx * coords.x) + 'px',--}}
-{{--marginTop: '-' + Math.round(ry * coords.y) + 'px'--}}
-{{--}).show();--}}
-{{--}--}}
-{{--}--}}
-
-{{--});--}}
-{{--</script>--}}

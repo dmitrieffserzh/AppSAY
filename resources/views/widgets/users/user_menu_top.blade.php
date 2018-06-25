@@ -1,7 +1,3 @@
-@push('add_styles')
-    <link href="{{ asset('main/css/users.css') }}" rel="stylesheet">
-@endpush
-
 <div class="user_wgt d-inline-block float-right">
 
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">

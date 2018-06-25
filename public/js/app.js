@@ -30163,7 +30163,7 @@ $(document).on('click', '.component-likes__button', function () {
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
         data: data,
         type: 'POST',
-        url: '/like',
+        url: '/like_handler',
         success: function success(result) {
             that_main.find('.component-likes__count').text(result.like_count);
             if (result.liked === true) {
@@ -30173,6 +30173,29 @@ $(document).on('click', '.component-likes__button', function () {
             }
         }
     });
+    event.preventDefault();
+});
+
+// FOLLOW SYSTEM
+$(document).on('click', '.follow', function () {
+    var elem = $(this).parent();
+    var data = $(this).data();
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: data,
+        type: 'POST',
+        url: '/follow_handler',
+        success: function success(data) {
+            if (data.success === true) {
+                elem.find('.follow').text('Отписаться');
+                console.log(data);
+            } else {
+                elem.find('.follow').text('Подписаться');
+                console.log(data);
+            }
+        }
+    });
+
     event.preventDefault();
 });
 
@@ -30225,6 +30248,68 @@ $(function () {
         });
     });
 });
+
+// IMAGE UPLOADER
+$(function () {
+
+    uplodImage = function uplodImage(e) {
+
+        var settings = new settingsUploads();
+        var prop = settings.getUrl($(e).data('upload-type'));
+
+        var form = new FormData();
+        var image = $(e)[0].files[0];
+        form.append('image', image);
+
+        $.ajax({
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            url: prop.url,
+            data: form,
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'POST',
+            beforeSend: function beforeSend() {
+                $('#spinner').addClass('spinner-on');
+            },
+            error: function error(_error) {
+                // Errors list in modal window
+                //$('.modal').modal('show');
+            },
+            success: function success(img) {
+                if (img.url) {
+                    $('#image_change').attr('src', prop.path_avatar + img.url);
+                    $('.bg-profile').css({
+                        'background-image': 'url(' + prop.path_cover + img.url + ')',
+                        'background-position': 'center center'
+                    });
+                }
+            },
+            complete: function complete() {
+                $('#spinner').removeClass('spinner-on');
+            }
+        });
+    };
+});
+
+var settingsUploads = function settingsUploads() {
+
+    this.getConfig = function () {
+        return {
+            'upload_avatar': {
+                url: '/image_upload',
+                path_avatar: '/uploads/images/normals/',
+                path_cover: '/uploads/images/covers/'
+            }
+        };
+    };
+
+    this.getUrl = function (id) {
+        return this.dict[id];
+    };
+
+    this.dict = this.getConfig();
+};
 
 /***/ }),
 /* 7 */
