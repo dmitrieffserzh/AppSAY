@@ -18,7 +18,7 @@ Route::get('/',                                   [ 'as' => 'home',           'u
 
 
 // TAGS
-Route::get('news/tag/{slug}',                  [ 'as' => 'news.tag',       'uses' => 'TagController@index' ]);
+Route::get('news/tag/{slug}',                     [ 'as' => 'news.tag',       'uses' => 'TagController@index' ]);
 
 
 // NEWS
@@ -30,8 +30,10 @@ Route::group([
 		Route::get('{category_slug}/{slug}',      [ 'as' => 'news.show',      'uses' => 'NewsController@show' ]);
 		});
 
+
 // USERS
-Route::get('users',                               [ 'as' => 'users.list',     'uses' => 'NewsController@index' ]);
+Route::get('users',                               [ 'as' => 'users.list',     'uses' => 'ProfileController@index' ]);
+Route::get('users/id{id}',                        [ 'as' => 'users.profile',  'uses' => 'ProfileController@profile' ]);
 
 
 // ADMIN PANEL =======================================================================================================//

@@ -10,11 +10,15 @@
                     @endif
                     ">
                 <a href="{{ route('news.show', ['category_slug'=>$item->getCategory->slug, 'slug'=>$item->slug]) }}"
-                   class="h3 d-block text-dark font-weight-bold">{{$item->title or ""}}</a>
+                   class="h6 d-block text-dark font-weight-bold">{{$item->title or ""}}</a>
                 <h6 class="d-inline-block small text-light p-1" style="background: {{ $item->getCategory->color }}"><a
                             href="{{ route('news.category', $item->getCategory->slug ) }}"
-                            class="text-light p-1 font-weight-bold">{{ $item->getCategory->title }}</a></h6>
+                            class="text-light p-1 font-weight-bold text-uppercase">{{ $item->getCategory->title }}</a></h6>
 
+                <a href="{{ route('users.profile', $item->getAuthor->id) }}" class="author-widget d-inline-block" title="Автор {{ $item->getAuthor->nickname }}">
+                    <img src="{{ $item->getAuthor->getProfile->avatar }}" style="height: 25px;width: 25px" class="rounded-circle" alt="{{ $item->getAuthor->nickname }}">
+                    {{ $item->getAuthor->nickname }}
+                </a>
                 <div class="" style="color: #b0bbc5;">{{ $item->created_at->diffForHumans() }}</div>
 
                 <div class="btn-group float-right d-none" role="group">
@@ -28,15 +32,13 @@
                 {{--@include('widgets.likes.like', ['content'=>$item])--}}
 
                 @php($count_tags = 1)
-                @forelse($item->getTags as $item_tag)
+                @foreach($item->getTags as $item_tag)
 
                     <a href="{{ route('news.tag', $item_tag->slug) }}" class="text-uppercase text-primary"
                        style="font-size: 10px;">#{{ $item_tag->title }}</a>@if($count_tags != count($item->getTags))<span class="text-primary">, </span>@endif
                     @php($count_tags++)
 
-                @empty
-                    {{ 'Теги не найдены' }}
-                @endforelse
+                @endforeach
             </div>
         </div>
     </div>

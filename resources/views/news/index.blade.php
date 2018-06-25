@@ -30,7 +30,7 @@
 
 
 @section('aside')
-    <h4 class="text-uppercase border-bottom border-gray pb-2 text-primary">Боковая колонка</h4>
+    <h6 class="text-uppercase border-bottom border-gray pb-2 text-primary">Боковая колонка</h6>
     <ul class="aside-menu">
         <li><a href="{{ route('users.list') }}">Пользователи</a></li>
         <li><a href="{{ route('news.index') }}">Новости</a></li>

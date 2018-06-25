@@ -11,7 +11,7 @@
     <a class="d-inline-block" href="{{ route('users.profile', Auth::id()) }}" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-flip="false">
         <img class="rounded-circle"
              style="width: 40px; height: 40px; border: 2px Solid rgba(255, 255, 255, 0.1);"
-             src="{{ getImage('thumbnail', Auth::user()->profile->avatar) }}"
+             src="{{ getImage('thumbnail', Auth::user()->getProfile->avatar) }}"
              alt="{{ Auth::user()->nickname }}">
     </a>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">

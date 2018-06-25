@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Profile;
 use App\Models\News;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -19,9 +20,32 @@ class User extends Authenticatable {
         'password', 'remember_token',
     ];
 
+
+	// IS ADMIN
+	public function is_admin() {
+		if ( $this->role == 'admin' ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function isOnline() {
+		return Cache::has( 'user-is-online-' . $this->id );
+	}
+
+
 	// RELATIONS
 	public function getProfile() {
 		return $this->hasOne( Profile::class );
+	}
+
+	public function followers() {
+		return $this->belongsToMany( User::class, 'follows', 'user_id', 'follower_id' )->withTimestamps();
+	}
+
+	public function followings() {
+		return $this->belongsToMany( User::class, 'follows', 'follower_id', 'user_id' )->withTimestamps();
 	}
 
 	public function getNews() {

@@ -5,7 +5,7 @@
             {{ config('app.name', 'Laravel') }}
         </a>
 
-        <!--<nav class="main-menu d-none d-md-inline-block">
+    <!--<nav class="main-menu d-none d-md-inline-block">
             <ul class="main-menu__list">
                 <li class="main-menu__item {{ is_active('news.*') }}">
                     <a href="{{ route('news.index') }}" class="main-menu__link">Новости</a>
@@ -35,7 +35,9 @@
                            data-url="{{ route('login') }}" data-name="Войти"
                            data-modal-size="modal-sm">
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user float-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-user float-left">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
                             </svg>
@@ -48,19 +50,7 @@
             </div>
     @else
 
-
-
-        <!--<li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-                </li>-->
-
-
-        {{--@include('main.components.users.user_menu_top')--}}
-
-
+        @include('widgets.users.user_menu_top')
 
     @endguest
 

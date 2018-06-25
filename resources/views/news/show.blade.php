@@ -20,20 +20,18 @@
 
         <div class="col">
             <h1>{{ $news->title }}</h1>
-            {{ $news->content }}
+            {!! $news->content !!}
         </div>
 
         <div class="col">
             @php($count_tags = 1)
-            @forelse($news->getTags as $item_tag)
+            @foreach($news->getTags as $item_tag)
 
                 <a href="{{ route('news.tag', $item_tag->slug) }}" class="text-uppercase text-primary"
                    style="font-size: 10px;">#{{ $item_tag->title }}</a>@if($count_tags != count($news->getTags))<span class="text-primary">, </span>@endif
                 @php($count_tags++)
 
-            @empty
-                {{ 'Теги не найдены' }}
-            @endforelse
+            @endforeach
 
         </div>
 
