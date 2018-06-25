@@ -47,6 +47,10 @@ Route::post('follow_handler',                     ['as' => 'follow_handler',  'u
 Route::post('image_upload',                       ['as' => 'image.upload',    'uses' => 'ImageController@upload']);
 
 
+// SOCIAL AUTH
+Route::get('/login/{social}/redirect', 'Auth\SocialAuthController@redirect');
+Route::get('/login/{social}/callback', 'Auth\SocialAuthController@callback');
+
 
 // ADMIN PANEL =======================================================================================================//
 Route::group([
