@@ -48,8 +48,8 @@ Route::post('image_upload',                       ['as' => 'image.upload',    'u
 
 
 // SOCIAL AUTH
-Route::get('/login/{social}/redirect', 'Auth\SocialAuthController@redirect');
-Route::get('/login/{social}/callback', 'Auth\SocialAuthController@callback');
+Route::get('auth/facebook',           'Auth\SocialAuthController@redirectToProvider');
+Route::get('auth/facebook/callback',  'Auth\SocialAuthController@handleProviderCallback');
 
 
 // ADMIN PANEL =======================================================================================================//

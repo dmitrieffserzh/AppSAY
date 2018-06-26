@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
 	        $table->string('role')->default('user');
+	        $table->string('provider');
+	        $table->string('provider_id');
             $table->timestamps();
             $table->softDeletes();
         });
