@@ -17,6 +17,10 @@ class CommentController extends Controller {
 
 			$data = $request->all();
 
+			if(!isset($data['item_id'])) {
+				$data['item_id'] = 0;
+			};
+
 			$new_comment = Comment::create([
 				'user_id'       => Auth::id(),
 				'parent_id'     => $data['item_id'],

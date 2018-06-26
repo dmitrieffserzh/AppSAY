@@ -43,6 +43,9 @@ Route::post('like_handler',                       ['as' => 'like_handler',    'u
 // FOLLOWERS
 Route::post('follow_handler',                     ['as' => 'follow_handler',  'uses' => 'FollowController@follow']);
 
+// COMMENTS
+Route::post('add_comment',                        ['as' => 'comment.add',     'uses' => 'CommentController@add_comment']);
+
 // IMAGE UPLOADER
 Route::post('image_upload',                       ['as' => 'image.upload',    'uses' => 'ImageController@upload']);
 

@@ -36,6 +36,10 @@
 
     </section>
 
+    <section class="section col p-0 mt-4 border-top border-gray">
+        @include('comments.list', ['content' => $news])
+    </section>
+
 @endsection
 
 

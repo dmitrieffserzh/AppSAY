@@ -12,7 +12,10 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+    .js('resources/assets/js/components/comments.js', 'public/js/components')
+    .js('resources/assets/js/components/jq_hotkeys.js', 'public/js/components')
+    .js('resources/assets/js/components/wysiwyg.js', 'public/js/components')
+    .sass('resources/assets/sass/app.scss', 'public/css');
 
 // ADMIN
 mix.js('resources/assets/js/admin.js', 'public/js')

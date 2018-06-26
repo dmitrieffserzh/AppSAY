@@ -23,7 +23,7 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     public function __construct() {
         $this->middleware('guest')->except('logout');

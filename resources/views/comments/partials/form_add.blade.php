@@ -1,10 +1,3 @@
-@push('custom-scripts')
-    <script src="{{ asset('js/components/comments.js') }}"></script>
-    <script src="{{ asset('js/components/jq_hotkeys.js') }}"></script>
-    <script src="{{ asset('js/components/wysiwyg.js') }}"></script>
-@endpush
-
-
 <form id="comment-form" class="comment-form">
     {{-- TOOLBAR --}}
 
@@ -52,7 +45,7 @@
 
 
     <div id="comment-editor" class="comment-form__input"></div>
-    <button type="submit" class="comment-form__submit btn btn-primary pull-right">
+    <button type="submit" class="comment-add-link comment-form__submit btn btn-primary pull-right" data-content-id="{{$content->id}}" data-content-type="news">
         Отправить
     </button>
 </form>

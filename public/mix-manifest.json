@@ -2,5 +2,8 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/admin.css": "/css/admin.css",
-    "/js/admin.js": "/js/admin.js"
+    "/js/admin.js": "/js/admin.js",
+    "/js/components/wysiwyg.js": "/js/components/wysiwyg.js",
+    "/js/components/jq_hotkeys.js": "/js/components/jq_hotkeys.js",
+    "/js/components/comments.js": "/js/components/comments.js"
 }
